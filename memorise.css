@@ -14,6 +14,7 @@ body {
   text-align: center;
   padding: 20px;
   max-width: 1200px;
+  width: 100%;
 }
 
 /* หัวข้อ */
@@ -28,23 +29,25 @@ body {
 /* จัดรูป */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(2, 1fr);   /* ✅ แถวละ 2 เสมอ */
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 /* รูป */
 .photo {
-  width: 50%;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  width: 100%;                   /* ✅ ให้เต็มช่อง */
+  height: auto;                   /* ✅ ย่อ/ขยายอัตโนมัติ */
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   animation: fadeIn 2s ease-in-out;
+  object-fit: contain;            /* ✅ เห็นรูปครบ ไม่ถูกตัด */
 }
 
 .photo:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  box-shadow: 0 0px 20px rgba(0,0,0,0.3);
 }
 
 /* ปุ่มย้อนกลับ */
@@ -81,12 +84,15 @@ body {
     font-size: 2.2rem;
   }
   .gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);  /* ✅ มือถือ/แท็บเล็ตก็ยัง 2 รูปต่อแถว */
   }
 }
 
 @media (max-width: 480px) {
   .gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);  /* ✅ จอเล็กก็ยัง 2 รูปต่อแถว */
+  }
+  .title {
+    font-size: 1.8rem;
   }
 }
