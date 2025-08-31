@@ -1,0 +1,129 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #76f5ec, #e7fffd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* กล่องหลัก */
+.container {
+  width: 90%;
+  max-width: 800px;
+  background: #e6cfcf;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  display: flex;              /* ✅ แบ่งซ้าย-ขวา */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ฝั่งซ้าย (ข้อความ) */
+.content {
+  flex: 1;
+}
+
+/* หัวข้อ */
+h1 {
+  font-size: 32px;
+  color: #da244c;
+  margin-bottom: 25px;
+}
+
+h1 span {
+  font-size: 36px;
+}
+
+/* แถวข้อมูลติดต่อ */
+.contact-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.contact-row img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+
+.contact-row p {
+  font-size: 18px;
+  color: #333;
+  text-align: left;
+}
+
+/* ปุ่มย้อนกลับ */
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background: #f76bd4;
+  border-radius: 30px;
+  color: rgb(252, 245, 245);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #ff66ff;
+  transform: translateY(-3px);
+}
+
+/* ฝั่งขวา (รูปคน) */
+.person {
+  flex-shrink: 0;
+}
+
+.person img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;   /* ✅ มือถือให้เรียงบน-ล่าง */
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact-row {
+    justify-content: center;
+  }
+
+  .contact-row p {
+    text-align: center;
+  }
+
+  .person img {
+    margin-top: 15px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 { font-size: 28px; }
+  h1 span { font-size: 32px; }
+  .contact-row img { width: 40px; height: 40px; }
+  .contact-row p { font-size: 16px; }
+  .back-btn { font-size: 14px; padding: 10px 20px; }
+  .person img { width: 120px; }
+}

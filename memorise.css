@@ -1,0 +1,92 @@
+/* พื้นหลังไล่สี */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffb6c1, #e6faff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* คอนเทนเนอร์ */
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+/* หัวข้อ */
+.title {
+  font-size: 3rem;
+  color: #a6005e;
+  font-weight: bold;
+  margin-bottom: 30px;
+  animation: bounce 1.5s infinite;
+}
+
+/* จัดรูป */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* รูป */
+.photo {
+  width: 50%;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.photo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ปุ่มย้อนกลับ */
+.back-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #a6005e;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #ff4d94;
+  transform: translateY(-3px);
+}
+
+/* Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

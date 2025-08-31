@@ -1,0 +1,115 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #76f5ec, #e7fffd); /* สีเดิม */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  max-width: 500px;
+  width: 90%;
+  background: #ec9ed2;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Left Image */
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0ff; /* สีเดิม */
+  padding: 20px;
+}
+
+.left img {
+  width: 100%;      /* ให้เต็มพื้นที่ container */
+  max-width: 300px; /* ขนาดใหญ่สุดเหมือนเดิม */
+  height: auto;     /* ย่อ/ขยายอัตโนมัติ */
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Right Content */
+.right {
+  flex: 2;
+  padding: 30px;
+}
+
+.right h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: hsl(332, 66%, 45%);
+}
+
+.right p {
+  font-size: 18px;
+  margin: 8px 0;
+  color: #8e18c5;
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background: #f847a0; /* สีเดิม */
+  border: none;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #ff66ff; /* hover สีเดิม */
+  transform: translateY(-3px);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .left, .right {
+    flex: unset;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .left img {
+    width: 100%; /* ย่อรูปภาพ */
+    max-width: 200px;
+  }
+
+  .right h1 { font-size: 28px; }
+  .right p { font-size: 16px; }
+  .back-btn { font-size: 14px; padding: 10px 20px; }
+}
+
+@media (max-width: 480px) {
+  .left img {
+    width: 80%; /* ย่อรูปภาพมากขึ้นสำหรับมือถือ */
+    max-width: 200px;
+  }
+  .right h1 { font-size: 24px; }
+  .right p { font-size: 14px; }
+  .back-btn { font-size: 12px; padding: 8px 16px; }
+}
